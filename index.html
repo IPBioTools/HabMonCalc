@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>HabMon Calculations</title>
+    </head>
+    <body>
+        <h1>HabMon Calculations</h1>
+        <label>
+            Open Water<br>
+            <input id="openWaterInput" type="number" step="0.1" value="0.0"><br>
+        </label>
+        <span id="openWaterResult"></span><br><br>
+        <label>
+            Emergent<br>
+            <input id="emergentInput" type="number" step="0.1" value="0.0"><br>
+        </label>
+        <span id="emergentResult"></span><br><br>
+        <label>
+            Floating<br>
+            <input id="floatingInput" type="number" step="0.1" value="0.0"><br>
+        </label>
+        <span id="floatingResult"></span><br><br>
+        <label>
+            Submerged<br>
+            <input id="submergedInput" type="number" step="0.1" value="0.0"><br>
+        </label>
+        <span id="submergedResult"></span><br><br>
+
+        <button onclick="calculate()">Calculate</button><br><br>
+        <button onclick="reset()">Reset</button>
+    </body>
+    <script>
+        function calculate() {
+            let ow = parseFloat(document.getElementById("openWaterInput").value);
+            let e = parseFloat(document.getElementById("emergentInput").value);
+            let f = parseFloat(document.getElementById("floatingInput").value);
+            let s = parseFloat(document.getElementById("submergedInput").value);
+
+            let total = (ow + e + f + s);
+
+            document.getElementById("openWaterResult").innerText = (60 * (ow / total)).toFixed(2) + " seconds";
+            document.getElementById("emergentResult").innerText = (60 * (e / total)).toFixed(2) + " seconds";
+            document.getElementById("floatingResult").innerText = (60 * (f / total)).toFixed(2) + " seconds";
+            document.getElementById("submergedResult").innerText = (60 * (s / total)).toFixed(2) + " seconds";
+        }
+
+        function reset() {
+            for (let node of document.querySelectorAll("[id$='Input']")) {
+                node.value = 0;
+            }
+
+            for (let node of document.querySelectorAll("[id$='Result']")) {
+                node.innerText = null;
+            }
+        }
+    </script>
+</html>
