@@ -1,9 +1,8 @@
 const cacheName = 'habmon-cache-v1';
 
 const toCache = [
-    '/',
     '/index.html',
-    '/scripts.js'
+    './scripts.js'
 ];
 
 self.addEventListener('install', event => {
