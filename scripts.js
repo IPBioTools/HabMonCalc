@@ -1,6 +1,6 @@
 function calculate() {
     for (let node of document.querySelectorAll("[id$='Input']")) {
-        if (node.value == "") {
+        if (node.value === "") {
             node.value = 0
         }
     }
@@ -12,7 +12,7 @@ function calculate() {
 
     let total = (ow + e + f + s);
 
-    if (total == 0) {
+    if (total === 0) {
         alert("Nothing entered");
         return;
     }
