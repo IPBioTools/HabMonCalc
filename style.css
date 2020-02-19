@@ -1,0 +1,58 @@
+html body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: mediumseagreen;
+    color: white;
+    padding: 0;
+    text-align: center;
+}
+
+header>h1 {
+    margin: 0;
+    padding: 0.5rem 0 0 0;
+}
+
+main {
+    padding: 1rem;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: calc(100% - 2rem);
+    font-size: 2rem;
+    text-align: center;
+}
+
+button {
+    width: 100%;
+    margin: auto;
+    display: block;
+    border: none;
+    padding: 1rem 0 1rem 0;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:active {
+    background-color: cornflowerblue;
+}
+
+.greenButton {
+    background-color: mediumseagreen;
+}
+
+.redButton {
+    background-color: red;
+}
