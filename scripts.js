@@ -1,7 +1,9 @@
 function calculate() {
-    for (let node of document.querySelectorAll("[id$='Input']")) {
+    let inputNodes = document.querySelectorAll("[id$='Input']");
+
+    for (let node of inputNodes) {
         if (node.value === "") {
-            node.value = 0
+            node.value = "0";
         }
     }
 
@@ -14,13 +16,36 @@ function calculate() {
 
     if (total === 0) {
         alert("Nothing entered");
+        for (let node of inputNodes) {
+            if (node.value === "0") {
+                node.value = ""
+            }
+        }
         return;
     }
 
-    document.getElementById("openWaterResult").innerText = (60 * (ow / total)).toFixed(2) + " seconds";
-    document.getElementById("emergentResult").innerText = (60 * (e / total)).toFixed(2) + " seconds";
-    document.getElementById("floatingResult").innerText = (60 * (f / total)).toFixed(2) + " seconds";
-    document.getElementById("submergedResult").innerText = (60 * (s / total)).toFixed(2) + " seconds";
+    document.getElementById("openWaterResult").innerText = `${hab(ow, total)} seconds`;
+    document.getElementById("emergentResult").innerText = `${hab(e, total)} seconds`;
+    document.getElementById("floatingResult").innerText = `${hab(f, total)} seconds`;
+    document.getElementById("submergedResult").innerText = `${hab(s, total)} seconds`;
+
+    for (let node of inputNodes) {
+        if (node.value === "0") {
+            node.value = ""
+        }
+    }
+}
+
+function hab(subset, total) {
+    // This will not always perfectly add up to 60. But people aren't perfect anyway, so...
+    return Math.round((60 * (subset / total)))
+}
+
+function next(keyEvent, nodeId) {
+    console.log(keyEvent);
+    if (keyEvent.code === "Enter") {
+        document.getElementById(nodeId).focus()
+    }
 }
 
 function reset() {

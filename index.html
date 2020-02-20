@@ -18,17 +18,17 @@
         <main>
             <label>
                 Open Water<br>
-                <input id="openWaterInput" type="number" step="0.1"> %<br>
+                <input id="openWaterInput" type="number" step="0.1" onkeyup="next(event, 'emergentInput')"> %<br>
             </label>
             <span id="openWaterResult"></span><br><br>
             <label>
                 Emergent<br>
-                <input id="emergentInput" type="number" step="0.1"> %<br>
+                <input id="emergentInput" type="number" step="0.1" onkeyup="next(event, 'floatingInput')"> %<br>
             </label>
             <span id="emergentResult"></span><br><br>
             <label>
                 Floating<br>
-                <input id="floatingInput" type="number" step="0.1"> %<br>
+                <input id="floatingInput" type="number" step="0.1" onkeyup="next(event, 'submergedInput')"> %<br>
             </label>
             <span id="floatingResult"></span><br><br>
             <label>
